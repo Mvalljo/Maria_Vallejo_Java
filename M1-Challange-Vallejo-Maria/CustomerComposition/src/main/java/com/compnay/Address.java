@@ -55,4 +55,16 @@ public class Address {
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
     }
+
+    @Override
+    public String toString() {
+        if (street2 == " ") {
+            return street1 + ", " + city+ ", " + state+ ", " + zipCode ;
+        }else if (street2 == ""){
+            return street1 + ", " + city+ ", " + state+ ", " + zipCode ;
+        }else if (street2 == null){
+            return street1 + ", " + city+ ", " + state+ ", " + zipCode ;
+        }
+        return street1 + ", " + street2+ ", " + city+ ", " + state+ ", " + zipCode ;
+    }
 }

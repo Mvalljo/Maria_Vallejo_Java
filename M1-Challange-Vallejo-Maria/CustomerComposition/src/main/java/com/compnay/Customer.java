@@ -1,7 +1,5 @@
 package com.compnay;
 
-import com.sun.xml.internal.ws.wsdl.writer.document.http.Address;
-
 public class Customer {
 
     private String firstName;

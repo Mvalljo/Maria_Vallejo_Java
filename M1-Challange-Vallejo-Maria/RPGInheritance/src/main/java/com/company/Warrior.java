@@ -8,4 +8,8 @@ public class Warrior extends Character{
         super(name, 75,100,100,50,10,false,false);
         this.shieldStrength = 100;
     }
+
+    public int getShieldStrength() {
+        return shieldStrength;
+    }
 }

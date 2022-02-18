@@ -30,51 +30,73 @@ public class Character {
         this.arrested = arrested;
     }
 
-    public void run() {
-        System.out.println("I AM RUNNING");
-    }
-
-    public void attack(Character enemy) {
-        enemy.decreaseHealth(this.attackPower);
-    }
-
-    public void heal(int amount) {
-        this.health += amount;
-    }
-
-    public void decreaseHealth(int amount) {
-        this.health -= amount;
-    }
-
-    public void increaseStamina(int amount) {
-        this.stamina += amount;
-    }
-
-    public void decreaseStamina(int amount) {
-        this.stamina -= amount;
+    public String attack(Character enemy) {
+        enemy.setHealth(enemy.getHealth() - this.attackPower) ;
+        return enemy.getName();
     }
 
     public String getName() {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public int getStrength() {
         return strength;
+    }
+
+    public void setStrength(int strength) {
+        this.strength = strength;
     }
 
     public int getHealth() {
         return health;
     }
 
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
     public int getStamina() {
         return stamina;
+    }
+
+    public void setStamina(int stamina) {
+        this.stamina = stamina;
     }
 
     public int getSpeed() {
         return speed;
     }
 
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
     public int getAttackPower() {
         return attackPower;
+    }
+
+    public void setAttackPower(int attackPower) {
+        this.attackPower = attackPower;
+    }
+
+    public boolean isRunning() {
+        return running;
+    }
+
+    public void setRunning(boolean running) {
+        this.running = running;
+    }
+
+    public boolean isArrested() {
+        return arrested;
+    }
+
+    public boolean setArrested(boolean arrested) {
+        this.arrested = arrested;
+        return arrested;
     }
 }

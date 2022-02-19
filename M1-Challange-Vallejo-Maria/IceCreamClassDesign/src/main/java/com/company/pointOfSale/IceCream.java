@@ -14,6 +14,19 @@ public class IceCream {
         this.quantity = quantity;
     }
 
+    public void refillQuantity(double amount) {
+        this.quantity += amount;
+    }
+
+    public void scoop(int scoops) {
+        this.quantity -= scoops * 10;
+        System.out.format("Thanks that will be %f dollars!", price * scoops);
+    }
+
+    public void sample() {
+        this.quantity--;
+    }
+
     public String getFlavor() {
         return flavor;
     }

@@ -1,5 +1,7 @@
 package com.company.factory;
 
+import java.util.Arrays;
+
 public class IceCream {
 
     private String flavor;
@@ -20,6 +22,19 @@ public class IceCream {
         this.productionCost = productionCost;
         this.productionTime = productionTime;
         this.ingredients = ingredients;
+    }
+
+    public void replaceIngredient(int index, String ingredient) {
+        ingredients[index] = ingredient;
+    }
+
+    public void orderFlavor(double quantity) {
+        System.out.println(quantity+" gallons of "+flavor+" ice cream will take "+productionTime * quantity+" hours to produce.");
+        System.out.println("It will cost "+productionCost * quantity+" to produce and should be sold at "+salePrice * quantity);
+    }
+
+    public void changeProductionCost(double newProductionCost){
+        productionCost = newProductionCost;
     }
 
     public String getFlavor() {
@@ -54,11 +69,11 @@ public class IceCream {
         this.productionTime = productionTime;
     }
 
-    public String[] getIngredients() {
-        return ingredients;
-    }
-
     public void setIngredients(String[] ingredients) {
         this.ingredients = ingredients;
+    }
+
+    public String getIngredients() {
+        return  Arrays.toString(ingredients);
     }
 }

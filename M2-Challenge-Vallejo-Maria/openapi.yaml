@@ -1,0 +1,218 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+  - url: http://localhost:8080
+    description: Generated server url
+paths:
+  /subtract:
+    post:
+      tags:
+        - calculator-controller
+      operationId: getDifference
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CalculatorInput'
+        required: true
+      responses:
+        '201':
+          description: Created
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CalculatorOutput'
+        '422':
+          description: Unprocessable Entity
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                  - type: array
+                    items:
+                      $ref: '#/components/schemas/CustomErrorResponse'
+                  - $ref: '#/components/schemas/CustomErrorResponse'
+  /multiply:
+    post:
+      tags:
+        - calculator-controller
+      operationId: getProduct
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CalculatorInput'
+        required: true
+      responses:
+        '201':
+          description: Created
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CalculatorOutput'
+        '422':
+          description: Unprocessable Entity
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                  - type: array
+                    items:
+                      $ref: '#/components/schemas/CustomErrorResponse'
+                  - $ref: '#/components/schemas/CustomErrorResponse'
+  /divide:
+    post:
+      tags:
+        - calculator-controller
+      operationId: getQuotient
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CalculatorInput'
+        required: true
+      responses:
+        '201':
+          description: Created
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CalculatorOutput'
+        '422':
+          description: Unprocessable Entity
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                  - type: array
+                    items:
+                      $ref: '#/components/schemas/CustomErrorResponse'
+                  - $ref: '#/components/schemas/CustomErrorResponse'
+  /add:
+    post:
+      tags:
+        - calculator-controller
+      operationId: getSum
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CalculatorInput'
+        required: true
+      responses:
+        '201':
+          description: Created
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CalculatorOutput'
+        '422':
+          description: Unprocessable Entity
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                  - type: array
+                    items:
+                      $ref: '#/components/schemas/CustomErrorResponse'
+                  - $ref: '#/components/schemas/CustomErrorResponse'
+  /randomMonth:
+    get:
+      tags:
+        - month-converter-controller
+      operationId: getRandomConvertedMonth
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MonthConverter'
+        '422':
+          description: Unprocessable Entity
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                  - type: array
+                    items:
+                      $ref: '#/components/schemas/CustomErrorResponse'
+                  - $ref: '#/components/schemas/CustomErrorResponse'
+  /month/{monthNumber}:
+    get:
+      tags:
+        - month-converter-controller
+      operationId: getConvertedMonth
+      parameters:
+        - name: monthNumber
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MonthConverter'
+        '422':
+          description: Unprocessable Entity
+          content:
+            '*/*':
+              schema:
+                oneOf:
+                  - type: array
+                    items:
+                      $ref: '#/components/schemas/CustomErrorResponse'
+                  - $ref: '#/components/schemas/CustomErrorResponse'
+components:
+  schemas:
+    CustomErrorResponse:
+      type: object
+      properties:
+        errorMsg:
+          type: string
+        status:
+          type: integer
+          format: int32
+        errorCode:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+    CalculatorInput:
+      required:
+        - operand1
+        - operand2
+      type: object
+      properties:
+        operand1:
+          type: string
+        operand2:
+          type: string
+    CalculatorOutput:
+      type: object
+      properties:
+        operand1:
+          type: integer
+          format: int32
+        operand2:
+          type: integer
+          format: int32
+        operation:
+          type: string
+        answer:
+          type: integer
+          format: int32
+    MonthConverter:
+      type: object
+      properties:
+        number:
+          type: integer
+          format: int32
+        month:
+          type: string

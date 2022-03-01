@@ -17,16 +17,19 @@ public class CalculatorController {
         String b = calculatorInput.getOperand2();
         int a1;
         int b1;
+
         try {
             a1 = Integer.parseInt(a);
             b1 = Integer.parseInt(b);
         }catch (NumberFormatException e){
             throw new IllegalArgumentException("Number is needed.");
         }
+
         CalculatorOutput calculatorOutput = new CalculatorOutput();
         calculatorOutput.setOperand1(a1);
         calculatorOutput.setOperand2(b1);
         calculatorOutput.setAnswer(calculatorOutput.add(a1,b1));
+
         return calculatorOutput;
     }
 
@@ -37,16 +40,19 @@ public class CalculatorController {
         String b = calculatorInput.getOperand2();
         int a1;
         int b1;
+
         try {
             a1 = Integer.parseInt(a);
             b1 = Integer.parseInt(b);
         }catch (NumberFormatException e){
             throw new IllegalArgumentException("Number is needed.");
         }
+
         CalculatorOutput calculatorOutput = new CalculatorOutput();
         calculatorOutput.setOperand1(a1);
         calculatorOutput.setOperand2(b1);
         calculatorOutput.setAnswer(calculatorOutput.subtract(a1,b1));
+
         return calculatorOutput;
     }
 
@@ -57,16 +63,19 @@ public class CalculatorController {
         String b = calculatorInput.getOperand2();
         int a1;
         int b1;
+
         try {
             a1 = Integer.parseInt(a);
             b1 = Integer.parseInt(b);
         }catch (NumberFormatException e){
             throw new IllegalArgumentException("Number is needed.");
         }
+
         CalculatorOutput calculatorOutput = new CalculatorOutput();
         calculatorOutput.setOperand1(a1);
         calculatorOutput.setOperand2(b1);
         calculatorOutput.setAnswer(calculatorOutput.multiply(a1,b1));
+
         return calculatorOutput;
     }
 
@@ -77,19 +86,24 @@ public class CalculatorController {
         String b = calculatorInput.getOperand2();
         int a1;
         int b1;
+
         try {
             a1 = Integer.parseInt(a);
             b1 = Integer.parseInt(b);
+
             if (b1 == 0) {
                 throw new IllegalArgumentException("Invalid Number");
             }
+
         }catch (NumberFormatException e){
             throw new IllegalArgumentException("Number is needed.");
         }
+
         CalculatorOutput calculatorOutput = new CalculatorOutput();
         calculatorOutput.setOperand1(a1);
         calculatorOutput.setOperand2(b1);
         calculatorOutput.setAnswer(calculatorOutput.divide(a1,b1));
+
         return calculatorOutput;
     }
 }
